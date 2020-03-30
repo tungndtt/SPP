@@ -1,6 +1,19 @@
 package sumDistances;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+
+public class Node {
+	LinkedList<Node> childs;
+	Node parent;
+	int id, numChilds, sum;
+	Node(int id){
+		this.id = id;
+		this.childs = new LinkedList<>();
+		this.numChilds = 0;
+		this.sum = 0;
+	}
+}
 
 public class SumDistances {
 	public static void main(String[] args) {
