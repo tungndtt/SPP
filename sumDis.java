@@ -23,6 +23,7 @@ public class SumDistances {
 		for(int i: res) System.out.println(i);
 	}
 	
+	// this function calculates the sum distance
 	private static int[] sumDistances(int[][] edges) {
 		Node root = new Node(edges[0][0]);
 		HashMap<Integer,Node> map = new HashMap<>();
@@ -56,8 +57,9 @@ public class SumDistances {
 			node.numChilds += child.numChilds+1;
 		}
 	}
-	
-	// this is other comment from master
+
+	// this is comment from Tung
+
 	private static void calculateSumDistances(Node node, int numOfNodes) {
 		if(node.parent!= null) node.sum = node.parent.sum + numOfNodes - (1+node.numChilds)*2;
 		for(Node child : node.childs) calculateSumDistances(child,numOfNodes);
