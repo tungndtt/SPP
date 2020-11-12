@@ -57,6 +57,7 @@ public class SumDistances {
 		}
 	}
 	
+	// this is other comment from master
 	private static void calculateSumDistances(Node node, int numOfNodes) {
 		if(node.parent!= null) node.sum = node.parent.sum + numOfNodes - (1+node.numChilds)*2;
 		for(Node child : node.childs) calculateSumDistances(child,numOfNodes);
