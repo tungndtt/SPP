@@ -15,11 +15,14 @@ public class Node {
 	}
 }
 
+
 public class SumDistances {
+	
 	public static void main(String[] args) {
 		int[] res = sumDistances(new int[][] {{0,1},{0,2},{2,3},{2,4},{2,5}});
 		for(int i: res) System.out.println(i);
 	}
+	
 	private static int[] sumDistances(int[][] edges) {
 		Node root = new Node(edges[0][0]);
 		HashMap<Integer,Node> map = new HashMap<>();
@@ -45,6 +48,7 @@ public class SumDistances {
 		for(int id : map.keySet()) res[id] = map.get(id).sum;
 		return res;
 	}
+	
 	private static void visitChilds(Node node) {
 		for(Node child : node.childs) {
 			visitChilds(child);
@@ -52,6 +56,7 @@ public class SumDistances {
 			node.numChilds += child.numChilds+1;
 		}
 	}
+	
 	private static void calculateSumDistances(Node node, int numOfNodes) {
 		if(node.parent!= null) node.sum = node.parent.sum + numOfNodes - (1+node.numChilds)*2;
 		for(Node child : node.childs) calculateSumDistances(child,numOfNodes);
